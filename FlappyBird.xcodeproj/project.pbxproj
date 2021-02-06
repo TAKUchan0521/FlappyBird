@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7726A11325CEA99C002BB2F4 /* itemGet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7726A11225CEA99C002BB2F4 /* itemGet.mp3 */; };
+		7726A11625CEAB27002BB2F4 /* BGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7726A11525CEAB27002BB2F4 /* BGM.mp3 */; };
+		7726A11A25CEAC7F002BB2F4 /* fail.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7726A11825CEAC7F002BB2F4 /* fail.mp3 */; };
+		7726A11B25CEAC7F002BB2F4 /* scoreGet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7726A11925CEAC7F002BB2F4 /* scoreGet.mp3 */; };
 		77B7E1AF25C13386004C4295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7E1AE25C13386004C4295 /* AppDelegate.swift */; };
 		77B7E1B125C13386004C4295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7E1B025C13386004C4295 /* SceneDelegate.swift */; };
 		77B7E1B325C13386004C4295 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7E1B225C13386004C4295 /* ViewController.swift */; };
@@ -19,6 +22,9 @@
 
 /* Begin PBXFileReference section */
 		7726A11225CEA99C002BB2F4 /* itemGet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = itemGet.mp3; sourceTree = "<group>"; };
+		7726A11525CEAB27002BB2F4 /* BGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BGM.mp3; sourceTree = "<group>"; };
+		7726A11825CEAC7F002BB2F4 /* fail.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fail.mp3; sourceTree = "<group>"; };
+		7726A11925CEAC7F002BB2F4 /* scoreGet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scoreGet.mp3; sourceTree = "<group>"; };
 		77B7E1AB25C13386004C4295 /* FlappyBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B7E1AE25C13386004C4295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77B7E1B025C13386004C4295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +66,9 @@
 		77B7E1AD25C13386004C4295 /* FlappyBird */ = {
 			isa = PBXGroup;
 			children = (
+				7726A11825CEAC7F002BB2F4 /* fail.mp3 */,
+				7726A11925CEAC7F002BB2F4 /* scoreGet.mp3 */,
+				7726A11525CEAB27002BB2F4 /* BGM.mp3 */,
 				7726A11225CEA99C002BB2F4 /* itemGet.mp3 */,
 				77B7E1AE25C13386004C4295 /* AppDelegate.swift */,
 				77B7E1B025C13386004C4295 /* SceneDelegate.swift */,
@@ -132,7 +141,10 @@
 			files = (
 				7726A11325CEA99C002BB2F4 /* itemGet.mp3 in Resources */,
 				77B7E1BB25C13389004C4295 /* LaunchScreen.storyboard in Resources */,
+				7726A11A25CEAC7F002BB2F4 /* fail.mp3 in Resources */,
 				77B7E1B825C13389004C4295 /* Assets.xcassets in Resources */,
+				7726A11B25CEAC7F002BB2F4 /* scoreGet.mp3 in Resources */,
+				7726A11625CEAB27002BB2F4 /* BGM.mp3 in Resources */,
 				77B7E1B625C13386004C4295 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

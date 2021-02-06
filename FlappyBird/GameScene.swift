@@ -11,6 +11,8 @@ import AVFoundation
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var itemGetSound: AVAudioPlayer! = nil
+    var bgm: AVAudioPlayer! = nil
+    var scoreGet: AVAudioPlayer! = nil
     
     var scrollNode:SKNode!
     var wallNode:SKNode!
@@ -39,6 +41,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let itemSoundURL = Bundle.main.url(forResource: "itemGet", withExtension: "mp3")
         do {
             itemGetSound = try AVAudioPlayer(contentsOf: itemSoundURL!)
+        } catch {
+            print("error...")
+        }
+        
+        let bgmSoundURL = Bundle.main.url(forResource: "BGM", withExtension: "mp3")
+        do {
+            bgm = try AVAudioPlayer(contentsOf: bgmSoundURL!)
+            bgm.numberOfLoops = 1000
+            bgm?.play()
+        } catch {
+            print("error...")
+        }
+        
+        let scoreSoundURL = Bundle.main.url(forResource: "scoreGet", withExtension: "mp3")
+        do {
+            scoreGet = try AVAudioPlayer(contentsOf: scoreSoundURL!)
         } catch {
             print("error...")
         }
@@ -383,6 +401,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             score += 1
             scoreLabelNode.text = "Score:\(score)"
             
+            scoreGet!.play()
+            
             // ベストスコア更新か確認する
             var bestScore = userDefaults.integer(forKey: "BEST")
             if score > bestScore {
@@ -416,6 +436,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // スクロールを停止させる
             scrollNode.speed = 0
             
+            bgm?.stop()
+            
             bird.physicsBody?.collisionBitMask = groundCategory
             
             let roll = SKAction.rotate(byAngle: CGFloat(Double.pi) * CGFloat(bird.position.y) * 0.01, duration: 1)
@@ -426,8 +448,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func restart() {
+        
+        bgm.currentTime = 0
+        bgm?.play()
+        
         score = 0
         scoreLabelNode.text = "Score:\(score)"
+        
+        itemScore = 0
+        itemScoreLabelNode.text = "Item Score:\(itemScore)"
         
         bird.position = CGPoint(x: self.frame.size.width * 0.2, y: self.frame.size.height * 0.7)
         bird.physicsBody?.velocity = CGVector.zero
