@@ -6,8 +6,11 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    var itemGetSound: AVAudioPlayer! = nil
     
     var scrollNode:SKNode!
     var wallNode:SKNode!
@@ -31,6 +34,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     // SKView上にシーンが表示されたときに呼ばれるメソッド
     override func didMove(to view: SKView) {
+        
+        // 再生する音声ファイルを指定する
+        let itemSoundURL = Bundle.main.url(forResource: "itemGet", withExtension: "mp3")
+        do {
+            itemGetSound = try AVAudioPlayer(contentsOf: itemSoundURL!)
+        } catch {
+            print("error...")
+        }
         
         // 重力を設定
         physicsWorld.gravity = CGVector(dx: 0, dy: -4)
@@ -392,6 +403,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             print("item get")
+            
+            itemGetSound?.play()
             
             itemScore += 1
             itemScoreLabelNode.text = "Item Score:\(itemScore)"
