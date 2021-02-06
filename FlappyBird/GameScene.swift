@@ -13,6 +13,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var itemGetSound: AVAudioPlayer! = nil
     var bgm: AVAudioPlayer! = nil
     var scoreGet: AVAudioPlayer! = nil
+    var failSound: AVAudioPlayer! = nil
     
     var scrollNode:SKNode!
     var wallNode:SKNode!
@@ -57,6 +58,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let scoreSoundURL = Bundle.main.url(forResource: "scoreGet", withExtension: "mp3")
         do {
             scoreGet = try AVAudioPlayer(contentsOf: scoreSoundURL!)
+        } catch {
+            print("error...")
+        }
+        
+        let failSoundURL = Bundle.main.url(forResource: "fail", withExtension: "mp3")
+        do {
+            failSound = try AVAudioPlayer(contentsOf: failSoundURL!)
         } catch {
             print("error...")
         }
@@ -431,6 +439,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         } else {
             // 壁か地面と衝突した
+            
+            failSound!.play()
+            
             print("GameOver")
             
             // スクロールを停止させる
